@@ -51,10 +51,10 @@ Este programa é uma implementação simples do jogo da velha em Java. Ele permi
     Iniciando a partida e gerando tabuleiro......
     Vamos comecar o jogo! O jogador que vai iniciar o jogo e o : Alice
     Jogador Alice Sua peca e a: X
-    1   2   3
-    1 |_ |_ |_ |
-    2 |_ |_ |_ |
-    3 |_ |_ |_ |
+        1   2   3
+    1 |_ _|_ _|_ _|
+    2 |_ _|_ _|_ _|
+    3 |_ _|_ _|_ _|
     
     Por favor, Alice, escolha uma linha de 1 - 3: 1
     Por favor, Alice, escolha uma coluna de 1 - 3: 1
