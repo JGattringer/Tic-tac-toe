@@ -3,7 +3,7 @@ import java.util.Scanner;
 
 public class JogoDaVelha {
     public static void main(String[] args) {
-        
+
         // Iniciamos nosso scanner
         Scanner sc = new Scanner(System.in);
 
