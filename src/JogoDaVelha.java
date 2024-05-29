@@ -100,7 +100,7 @@ public class JogoDaVelha {
             System.out.println("Vamos comecar o jogo! O jogador que vai iniciar o jogo e o : " + playerAtual);
             System.out.println(" Jogador " + playerAtual + " Sua peca e a: " + pecaAtual);
 
-            // definimos uma variavel boolean para controlar a said do loop das regras do jogo.
+            // definimos uma variavel boolean para controlar a saida do loop das regras do jogo.
             boolean gameOver = false;
 
             // Loop com a logica do jogo
@@ -122,9 +122,10 @@ public class JogoDaVelha {
 
                 // Loop para escolher a jogada
                 while (true) {
-
+                    // variavel de controle do loop
                     boolean entradaValida = false;
-                    int linha = -1, coluna = -1;
+                    int linha = 0;
+                    int coluna = 0;
 
                     do {
                         System.out.println("Por favor, " + playerAtual + ", escolha uma linha de 1 - 3: ");
@@ -144,9 +145,11 @@ public class JogoDaVelha {
                                 }
                             } else {
                                 System.out.println("Entrada inválida para a coluna. Por favor, insira um número inteiro válido.");
+                                sc.next(); // Limpar entrada inválida
                             }
                         } else {
                             System.out.println("Entrada inválida para a linha. Por favor, insira um número inteiro válido.");
+                            sc.next(); // Limpar entrada inválida
                         }
                     } while (!entradaValida);
 
@@ -157,6 +160,7 @@ public class JogoDaVelha {
                     break;
                 }
                 // Verificamos se um  dos jogadores ja ganhou, ou a partida terminou em empate!
+
                 // Verifica linhas
                 for (int i = 0; i < 3; i++) {
                     if (tabuleiro[i][0] == pecaAtual && tabuleiro[i][1] == pecaAtual && tabuleiro[i][2] == pecaAtual) {
@@ -164,18 +168,16 @@ public class JogoDaVelha {
                         break;
                     }
                 }
-                // Verifica colunas
+                // Verifica colunas ---
                 for (int j = 0; j < 3; j++) {
                     if (tabuleiro[0][j] == pecaAtual && tabuleiro[1][j] == pecaAtual && tabuleiro[2][j] == pecaAtual) {
                         gameOver = true;
                         break;
                     }
                 }
-                // Verifica diagonais
-                if (tabuleiro[0][0] == pecaAtual && tabuleiro[1][1] == pecaAtual && tabuleiro[2][2] == pecaAtual) {
-                    gameOver = true;
-                }
-                if (tabuleiro[0][2] == pecaAtual && tabuleiro[1][1] == pecaAtual && tabuleiro[2][0] == pecaAtual) {
+                // Verifica diagonais X
+                if ((tabuleiro[0][0] == pecaAtual && tabuleiro[1][1] == pecaAtual && tabuleiro[2][2] == pecaAtual) ||
+                        (tabuleiro[0][2] == pecaAtual && tabuleiro[1][1] == pecaAtual && tabuleiro[2][0] == pecaAtual)) {
                     gameOver = true;
                 }
                 // Se alguém gameOver, declara o vencedor e termina o jogo
@@ -224,7 +226,7 @@ public class JogoDaVelha {
                 // Se todos os espaços estão usados e ninguém venceu, declara empate
                 if (tabuleiroCompleto) {
                     System.out.println("O jogo terminou em empate!");
-                    System.out.println("Pontuacao Player 1 : " + placarPlayer1 );
+                    System.out.println("Placar Player 1 : " + placarPlayer1 );
                     System.out.println("Placar Player 2 : " + placarPlayer2);
                     gameOver = true;
                     continue;
@@ -241,6 +243,7 @@ public class JogoDaVelha {
                     pecaAtual = player1Peca;
                 }
             }
+
             System.out.println("Deseja jogar novamente? Digite 'Sim' para jogar novamente ou 'Nao' para encerrar!");
             // Loop para vereficar se os jogadores querem jogar novamente!
             while (true) {
